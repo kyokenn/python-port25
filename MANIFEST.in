@@ -1,0 +1,9 @@
+include AUTHORS
+include COPYING
+include LICENSE
+include INSTALL
+include MANIFEST.in
+include python-port25.spec
+recursive-include test *py
+recursive-include docs *
+prune docs/html/*

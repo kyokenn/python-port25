@@ -1,0 +1,19 @@
+Requirements
+============
+- python 2.4+
+- python-setuptools 0.6c7+
+- PowerMTA C API
+
+Installation
+============
+Use the RPM ... or
+- Become root (or root like) user
+- run .setup.py install
+
+RPM
+===
+To create a rpm file ...
+- Edit *.spec
+- ./setup.py sdist
+- cp dist/* -/rpmbuild/SOURCES/
+- rpmbuild -ba *.spec
