@@ -23,7 +23,7 @@ from os import path
 from unittest import TextTestRunner, TestLoader
 
 sys.path.insert(0, 'src')
-sys.path.insert(1, 'test')
+sys.path.insert(1, 'tests')
 
 from port25 import __author__, __license__, __version__
 
@@ -105,10 +105,10 @@ class TestCommand(SetupBuildCommand):
     def run(self):
         """Finds all the tests modules in tests/, and runs them."""
         testfiles = []
-        for t in glob(pjoin(self._dir, 'test', '*.py')):
+        for t in glob(pjoin(self._dir, 'tests', '*.py')):
             if not t.endswith('__init__.py'):
                 testfiles.append('.'.join(
-                    ['test', splitext(basename(t))[0]]))
+                    ['tests', splitext(basename(t))[0]]))
 
         tests = TestLoader().loadTestsFromNames(testfiles)
         t = TextTestRunner(verbosity = 2)
