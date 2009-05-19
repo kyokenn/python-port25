@@ -105,7 +105,7 @@ class TestCommand(SetupBuildCommand):
     def run(self):
         """Finds all the tests modules in tests/, and runs them."""
         testfiles = []
-        for t in glob(pjoin(self._dir, 'tests', '*.py')):
+        for t in glob(pjoin(self._dir, 'test', '*.py')):
             if not t.endswith('__init__.py'):
                 testfiles.append('.'.join(
                     ['tests', splitext(basename(t))[0]]))
