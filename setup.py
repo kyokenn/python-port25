@@ -15,12 +15,8 @@ __docformat__ = 'restructuredtext'
 
 import os
 import sys
-from distutils.core import Command, setup
-from glob import glob
-from os.path import basename, walk, splitext
-from os.path import join as pjoin
+from setuptools import Command, setup
 from os import path
-from unittest import TextTestRunner, TestLoader
 
 sys.path.insert(0, 'src')
 sys.path.insert(1, 'tests')
@@ -99,28 +95,13 @@ class SphinxCommand(SetupBuildCommand):
         except Exception, ex:
             print >> sys.stderr, "FAIL! exiting ... (%s)" % ex
 
-class TestCommand(SetupBuildCommand):
-    """Distutils testing command."""
-
-    def run(self):
-        """Finds all the tests modules in tests/, and runs them."""
-        testfiles = []
-        for t in glob(pjoin(self._dir, 'tests', '*.py')):
-            if not t.endswith('__init__.py'):
-                testfiles.append('.'.join(
-                    ['tests', splitext(basename(t))[0]]))
-
-        tests = TestLoader().loadTestsFromNames(testfiles)
-        t = TextTestRunner(verbosity = 2)
-        t.run(tests)
-
-
 setup(name='python-port25',
       version=__version__,
       author=__author__,
       author_email='peter@numbersusa.com',
       description="The python API for Port25's PowerMTA.",
       long_description="The python API for Port25's PowerMTA.  It wraps around the C API, but makes it more pythonic.",
+      setup_requires=['nose>=0.10'],
       platforms = ['any'],
       license = __license__,
       package_dir={'port25': 'src/port25'},
@@ -130,8 +111,8 @@ setup(name='python-port25',
           'Development Status :: 5 - Production/Stable',
           'Topic :: Software Development :: Libraries :: Python Modules',
           'Programming Language :: Python'],
-      cmdclass = {'test': TestCommand,
-                  'doc': SphinxCommand,
+      test_suite = 'nose.collector',
+      cmdclass = {'doc': SphinxCommand,
                   'rpm': RPMBuildCommand},
       )
 
