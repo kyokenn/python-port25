@@ -115,7 +115,7 @@ class TestCommand(SetupBuildCommand):
         t.run(tests)
 
 
-setup(name='port25',
+setup(name='python-port25',
       version=__version__,
       author=__author__,
       author_email='peter@numbersusa.com',
