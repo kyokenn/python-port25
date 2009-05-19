@@ -36,16 +36,16 @@ class Connection(object):
             if not pmta.PmtaConnConnect(self.connection, uri):
                 raise PmtaConnectionError(self.connection)
         else:
-            if not pmta.PmtaConnConnectRemote(self.connection, uri, port):
+            if not pmta.PmtaConnConnect(self.connection, uri, port):
                 raise PmtaConnectionError(self.connection)
         
     def __del__(self):
         pmta.PmtaConnFree(self.connection)
         
-    def submit(self, msg):
+    def submit(self, msg=''):
         """Sending the email over the established connection.  Pass it a 
         Message object.
         
         msg: port25.submitter.message object to send."""
         if not pmta.PmtaConnSubmit(self.connection, msg):
-            raise PmtaConnectError(self.connection)
+            raise PmtaConnectionError(self.connection)

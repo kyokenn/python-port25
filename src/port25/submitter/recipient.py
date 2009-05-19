@@ -36,7 +36,7 @@ class Recipient(object):
     """Class that manages the recipient to the PowerMTA server.  Doesn't 
     require anything to be passed."""
 
-    def __init__(self, address):
+    def __init__(self, address=''):
         self.recipient = pmta.PmtaRcptAlloc()
         self._as_parameter_ = self.recipient
         if not pmta.PmtaRcptInit(self.recipient, address):
@@ -61,7 +61,7 @@ class Recipient(object):
             if not pmta.PmtaRcptDefineVariable(self.recipient, key, variables[key]):
                 raise PmtaRecipientError(self.recipient)
     
-    def defineVariable(self, name, value):
+    def defineVariable(self, name='', value=''):
         """used to bind mailmerge variable to a recipient.
         
         name: string for mailmerge variable's name
