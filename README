@@ -2,4 +2,7 @@ The software requires the software installed from PowerMTA that is non-free.
 It requires the C API libpmta.so.  Without this library the package will
 fail. 
 
-The software is licensed under the GPLv3 license which is provided with this source code. 
+The software is licensed under the GPLv3 license which is provided with this source 
+code.
+
+More information about NumbersUSA Action can be found at http://www.numbersusa.com.
