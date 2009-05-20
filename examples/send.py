@@ -7,7 +7,7 @@ try:
 
 	list = ('peter@numbersusa.com', 'rich@numbersusa.com',)
 	list_data = {'peter@numbersusa.com': {'name': 'Peter'}, 'rich@numbersusa.com': {'name': 'Rich'},}
-	data = "From: roy@numbersusa.com\12To:[*to]\12Subject: Your Order has been processed\12Mime-Version: 1.0\12Content-type: multipart/alternative;boundary=\"PMTAMimeBoundry\"\12[name]<br><br>Hey your order of a [order] has come in.  Please stop by and give us your money.<br><br>Tech Team [*to]<br>"
+	data = "From: roybeck@numbersusa.com\12To:[*to]\12Subject: Your Order has been processed\12Mime-Version: 1.0\12Content-type: multipart/alternative;boundary=\"PMTAMimeBoundry\"\12[name]<br><br>Hey your order of a [order] has come in.  Please stop by and give us your money.<br><br>Tech Team <br>"
 
 	msg = Message('roy@numbersusa.com')
 
