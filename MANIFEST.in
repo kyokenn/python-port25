@@ -1,8 +1,9 @@
 include AUTHORS
 include COPYING
-include LICENSE
 include INSTALL
+include LICENSE
 include MANIFEST.in
+include setup.cfg
 include python-port25.spec
 recursive-include test *py
 recursive-include docs *
