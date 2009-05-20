@@ -25,19 +25,15 @@ class PmtaConnectionError(PmtaError):
 class Connection(object):
     """"Class that manages the connection to the PowerMTA server.
         
-    uri: server to connect to 'local:', '127.0.0.1', or '1.2.3.4' defaults to 'local:'
+    uri: server to connect to '127.0.0.1', or '1.2.3.4' defaults to '127.0.0.1'
 	port: port to connect to defaults to 25"""
     
-    def __init__(self, uri="local:", port=25):
+    def __init__(self, uri="127.0.0.1", port=25):
         self.connection = pmta.PmtaConnAlloc()
         
         #different function are used depending on the URI passed
-        if uri == "local:":
-            if not pmta.PmtaConnConnect(self.connection, uri):
-                raise PmtaConnectionError(self.connection)
-        else:
-            if not pmta.PmtaConnConnect(self.connection, uri, port):
-                raise PmtaConnectionError(self.connection)
+        if not pmta.PmtaConnConnect(self.connection, uri, port):
+            raise PmtaConnectionError(self.connection)
         
     def __del__(self):
         pmta.PmtaConnFree(self.connection)
