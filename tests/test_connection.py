@@ -17,7 +17,7 @@ class ConnectionTest(unittest.TestCase):
 	def test_init_fails(self):
 		"""this tests the __init__ function of the Connection object to ensure
 		it fails if a hostname that is unroutable is passed."""
-		self.assertRaises(PmtaConnectionError, Connection, '111.111.111.111')
+		self.assertRaises(PmtaConnectionError, Connection, '127.0.0.1', '5555')
 		
 	def test_submit_fails(self):
 		"""this tests the __init__ function of the Connection object to ensure
