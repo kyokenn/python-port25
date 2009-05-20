@@ -15,7 +15,7 @@ try:
 	for item in list:
 		rcpt = Recipient(item)
 		rcpt.defineVariable('name', list_data[item]['name'])
-		rcpt.defineVariable('order', 'whores')
+		rcpt.defineVariable('order', 'pizzas')
 		rcpt.defineVariable('*parts', '1')
 		msg.addRecipient(rcpt)
 
