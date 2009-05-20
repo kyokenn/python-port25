@@ -1,3 +1,7 @@
+License for python-port25
+=========================
+
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -672,3 +676,11 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
+
+
+License for Software Used
+=========================
+The C API for Port25's PowerMTA product is licensed and trademarked by Port25, Inc. 
+
+Any use of the phrase "Port25", "port25", or "PowerMTA" are trademarked by 
+Port25, Inc.
