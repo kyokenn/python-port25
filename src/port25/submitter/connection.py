@@ -32,7 +32,7 @@ class Connection(object):
         self.connection = pmta.PmtaConnAlloc()
         
         #different function are used depending on the URI passed
-        if not pmta.PmtaConnConnect(self.connection, uri, port):
+        if not pmta.PmtaConnConnectRemote(self.connection, uri, port):
             raise PmtaConnectionError(self.connection)
         
     def __del__(self):
